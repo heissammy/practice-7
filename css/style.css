@@ -6,7 +6,6 @@
   --footer-background: hsl(240, 10%, 16%);
 }
 
-/* BASE STYLE */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,6 +15,7 @@
 html {
   font-size: 62.5%;
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -87,15 +87,8 @@ p {
   color: var(--color-very-light);
 }
 
-/* HEADER */
 header {
-  background: transparent;
-  padding: 2.5rem 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 99999;
+  padding: 4.5rem 0;
 }
 
 header.show-bg {
@@ -153,16 +146,16 @@ header.show-bg {
   display: block;
 }
 
-.navbar .cta {
+.navbar .header-cta {
   margin-left: auto;
 }
 
-.navbar .cta .btn-transparent {
+.navbar .header-cta .btn-transparent {
   margin-right: 2rem;
   color: var(--color-light);
 }
 
-/* DROPDOWN */
+
 .dropdown-menu {
   display: none;
   background-color: #fff;
@@ -188,6 +181,9 @@ header.show-bg {
   font-weight: 500;
   color: #000;
 }
+
+
+
 /* **************************************************** */
 /* MOBILE MENU */
 .mobile-menu {
@@ -296,7 +292,7 @@ header.show-bg {
   padding: 1.1rem 3.5rem;
 }
 
-/* TOGGLE MENU */
+
 .toggle-menu {
   cursor: pointer;
   margin-left: auto;
@@ -353,18 +349,16 @@ header.show-bg {
 .toggle-menu.active .hamburger-menu::after {
   transform: rotate(135deg);
 }
-/* **************************************************** */
-/* HERO */
+
 .hero {
-  min-height: 90vh;
+  padding-bottom: 20rem;
   background-image: url(./../images/bg-pattern-intro.svg),
     linear-gradient(to right, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
   background-repeat: no-repeat;
-  /* background-size: width , height  */
   background-size: 225%, 100%;
-  /* Edge offsets values */
   background-position: left 25% center;
   display: flex;
+  flex-direction: column;
   align-items: center;
   text-align: center;
   border-bottom-left-radius: 10rem;
@@ -372,10 +366,6 @@ header.show-bg {
 
 .hero h1 {
   color: var(--color-very-light);
-
-  /* clamp(MIN, VAL, MAX) 
-  ****responsive font-size****
-  If the preferred value of 5vw is smaller than 3.5rem, the (h1) will stop shrinking when it reaches that lower bound. Likewise if 5vw is larger than 5.2rem, the (h1) will stop growing when it reaches that upper bound.*/
   font-size: clamp(3.5rem, 5vw, 5.2rem);
   font-weight: 300;
   margin-top: 10rem;
@@ -405,7 +395,6 @@ header.show-bg {
   color: hsl(356, 100%, 66%);
 }
 
-/* Future */
 .future {
   padding: 10rem 0;
   margin-top: 3rem;
@@ -430,12 +419,10 @@ header.show-bg {
 }
 
 .future-illustration img {
-  /* Will be AT LEAST 70rem wide */
   width: min(100%, 70rem);
   transform: scale(1.5) translateX(calc(10vw + 7%));
 }
 
-/* INFRASTRUCTURE */
 .infrastructure {
   margin-top: 10rem;
   background-image: url(./../images/bg-pattern-circles.svg),
@@ -470,9 +457,8 @@ header.show-bg {
   position: absolute;
   top: 0px;
   left: 0px;
-  bottom: 0px;
+  bottom: -69px;
   margin: auto 0;
-  transform: scale(1.05) translateY(10px);
   max-width: 100%;
 }
 
@@ -485,7 +471,6 @@ header.show-bg {
   color: hsl(240, 2%, 79%);
 }
 
-/* ABOUT */
 .about {
   padding: 10rem 0;
   margin-top: 12rem;
@@ -505,12 +490,10 @@ header.show-bg {
 
 .laptop-illustration img {
   margin-left: calc(-33vw + 40%);
-  /* Will be AT LEAST 70rem wide */
   width: min(100%, 70rem);
   transform: scale(1.5);
 }
 
-/* FOOTER */
 footer {
   margin-top: 10rem;
   background-color: var(--footer-background);
@@ -552,15 +535,6 @@ footer {
   text-decoration: underline;
 }
 
-/* © COPYRIGHTS RESERVED */
-.attribution {
-  margin-top: 5rem;
-  font-size: 11px;
-  text-align: center;
-}
-.attribution a {
-  color: hsl(0, 0%, 100%);
-}
 
 /* MEDIA QUERY */
 @media screen and (min-width: 1440px) {
@@ -577,7 +551,7 @@ footer {
 
 @media screen and (max-width: 768px) {
   header {
-    padding: 2rem 0;
+    padding: 3.5rem 0;
   }
 
   .container {
@@ -588,7 +562,7 @@ footer {
     width: 7rem;
   }
 
-  .navbar :is(.nav-list, .cta) {
+  .navbar :is(.nav-list, .header-cta) {
     display: none;
   }
 
